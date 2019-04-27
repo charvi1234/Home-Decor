@@ -1,0 +1,36 @@
+<div class="py-4">
+</div>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:grey;">
+  <a class="navbar-brand" routerLink="/" title="go to main page">Register <span class="sr-only">(current)</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <!-- <li class="nav-item">
+        <a class="nav-link" routerLink="/" title="home page">Register</a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/beds" title="go to bed section">Beds</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/wardrobes" title="go to wardrobe section">Wardrobes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/sofas" title="go to sofas and loungers section">Sofas and Loungers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/decor" title="go to decor section">Decor</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <ul class="navbar-nav mr-auto">
+          <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" title="go to login page">Login</a>
+          <a class="nav-link" style="color: black" routerLink="/checkout" title="go to shopping cart">Checkout</a>
+          <a class="nav-link" style = "cursor: pointer" *ngIf="_authService.loggedIn()" (click) ="_authService.logoutUser()" title="logout">Logout</a>
+      </ul>
+    </form>
+  </div>
+</nav>

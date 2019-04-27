@@ -1,0 +1,123 @@
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="center-block img-responsive" src="http://www.firstclassbeds.co.uk/_assets/img/slider/slider-1.jpg"
+        class="d-block w-100" alt="beds">
+    </div>
+    <div class="carousel-item">
+      <img class="center-block img-responsive" src="http://www.uniquefittedfurniture.com/images/banner.jpg"
+        class="d-block w-100" alt="wardrobes">
+    </div>
+    <div class="carousel-item">
+      <img class="center-block img-responsive"
+        src="http://www.stylisheve.com/wp-content/uploads/2013/08/Modern-living-room-furniture-from-BB-Italia_05.jpg"
+        class="d-block w-100" alt="sofas and loungers">
+    </div>
+    <div class="carousel-item">
+      <img class="center-block img-responsive"
+        src="https://ak1.ostkcdn.com/img/mxc/08082018_sptest_HomeDecor_E1_DecoratingwithGreyColorSchemes_fix(2).jpg?imwidth=1024&impolicy=medium"
+        class="d-block w-100" alt="decor">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<div class="py-4">
+</div>
+<div class="row" id="forms">
+  <div class="col-sm-12 col-md-12 text-center text-uppercase">
+    <h3> Sign up </h3>
+  </div>
+  <div class="col-sm-12 col-md-12 text-center">
+    <span class="outer-line"></span>
+    <span class="fas fa-star" aria-hidden="true" style="margin:10px opx"></span>
+    <span class="outer-line"></span>
+  </div>
+  <div class="col-sm-6 col-md-6">
+    <img src="https://i.pinimg.com/236x/0c/cf/53/0ccf5322db2d03820a236f811aa861e1--decor-inspiration-dream-homes.jpg"
+      alt="home" class="img-responsive">
+  </div>
+  <div class="col-md-6 col-sm-6">
+    <form #userForm="ngForm" *ngIf="!auth.loggedIn()" data-toggle="validator" role="form" id="form-reset" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="fname">First Name*</label>
+        <input type="text" class="form-control" id="fname" required minlength="3" maxlength="30"
+          [(ngModel)]="model.fname" name="fname" placeholder="Enter First Name" #fname="ngModel">
+        <div *ngIf="fname.errors && (fname.dirty || fname.touched)" class="alert alert-danger">
+          <div [hidden]="!fname.errors.required">
+            First Name is required!
+          </div>
+          <div [hidden]="!fname.errors.minlength">
+            First Name must be atleast 3 characters long!
+          </div>
+          <div [hidden]="!fname.errors.maxlength">
+            First Name cannot be more than 30 characters long!
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lname">Last Name*</label>
+        <input type="text" class="form-control" id="lname" required minlength="3" maxlength="30"
+          [(ngModel)]="model.lname" name="lname" #lname="ngModel" placeholder="Enter last Name">
+        <div *ngIf="lname.errors && (lname.dirty || lname.touched)" class="alert alert-danger">
+          <div [hidden]="!lname.errors.required">
+            Last Name is required!
+          </div>
+          <div [hidden]="!lname.errors.minlength">
+            Last Name must be atleast 3 characters long!
+          </div>
+          <div [hidden]="!lname.errors.maxlength">
+            Last Name cannot be more than 30 characters long!
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email-Id*</label>
+        <input type="text" class="form-control" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required
+          [(ngModel)]="model.email" name="email" #email="ngModel" placeholder="Enter Email-Id">
+        <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+          <div [hidden]="!email.errors.required">
+            Email-Id is required!
+          </div>
+          <div [hidden]="!email.errors.pattern">
+            Must be a valid pattern!
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pswd">Password*</label>
+        <input type="password" class="form-control" id="pswd" pattern=".{6,}" required [(ngModel)]="model.pswd"
+          name="pswd" #pswd="ngModel" placeholder="Enter Password">
+        <div *ngIf="pswd.errors && (pswd.dirty || pswd.touched)" class="alert alert-danger">
+          <div [hidden]="!pswd.errors.required">
+            Password is required!
+          </div>
+          <div [hidden]="!pswd.errors.pattern">
+            Must have 6 or more characters!
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="contact">Phone No*</label>
+        <input type="text" class="form-control" pattern="(7|8|9)\d{9}" id="contact" required
+          [(ngModel)]="model.contact" name="contact" #contact="ngModel" placeholder="Enter Phone Number">
+        <div *ngIf="contact.errors && (contact.dirty || contact.touched)" class="alert alert-danger">
+          <div [hidden]="!contact.errors.required">
+            Phone number is required!
+          </div>
+          <div [hidden]="!contact.errors.pattern">
+            Must be a valid phone number.
+          </div>
+        </div>
+      </div>
+      <button [disabled] = "!userForm.form.valid" type="submit" class="btn btn-primary"  >Submit</button>
+    </form>
+  </div>
+</div>
